@@ -1,5 +1,5 @@
 
-const roles = ["Web Developer", "Designer", "Freelancer"];
+const roles = ["Web Developer", "Designer", "Fresher"];
 let roleIndex = 0;
 let charIndex = 0;
 const roleElement = document.getElementById("role");
