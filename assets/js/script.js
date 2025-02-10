@@ -122,3 +122,14 @@ $(document).ready(function () {
         owl.trigger("play.owl.autoplay", [5000]);
     });
 });
+
+// like counter
+let likeCount = 0;
+    let liked = false;
+    document.getElementById("likeButton").addEventListener("click", function() {
+        if (!liked) {
+            likeCount++;
+            document.getElementById("likeCount").textContent = likeCount;
+            liked = true;
+        }
+    });
