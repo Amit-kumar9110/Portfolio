@@ -124,12 +124,17 @@ $(document).ready(function () {
 });
 
 // like counter
-let likeCount = 0;
-    let liked = false;
-    document.getElementById("likeButton").addEventListener("click", function() {
-        if (!liked) {
-            likeCount++;
-            document.getElementById("likeCount").textContent = likeCount;
-            liked = true;
-        }
-    });
+let likeCount = localStorage.getItem("likeCount") ? parseInt(localStorage.getItem("likeCount")) : 0;
+let liked = localStorage.getItem("liked") === "true";
+
+document.getElementById("likeCount").textContent = likeCount;
+
+document.getElementById("likeButton").addEventListener("click", function() {
+    if (!liked) {
+        likeCount++;
+        document.getElementById("likeCount").textContent = likeCount;
+        localStorage.setItem("likeCount", likeCount);
+        localStorage.setItem("liked", "true");
+        liked = true;
+    }
+});
