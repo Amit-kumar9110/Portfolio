@@ -125,16 +125,32 @@ $(document).ready(function () {
 
 // like counter
 let likeCount = localStorage.getItem("likeCount") ? parseInt(localStorage.getItem("likeCount")) : 0;
-let liked = localStorage.getItem("liked") === "true";
-
-document.getElementById("likeCount").textContent = likeCount;
-
-document.getElementById("likeButton").addEventListener("click", function() {
-    if (!liked) {
-        likeCount++;
+    let liked = localStorage.getItem("liked") === "true";
+    document.getElementById("likeCount").textContent = likeCount;
+    
+    document.getElementById("likeButton").addEventListener("click", function(event) {
+        if (!liked) {
+            likeCount++;
+            localStorage.setItem("liked", "true");
+        } else {
+            likeCount--;
+            localStorage.setItem("liked", "false");
+        }
+        
         document.getElementById("likeCount").textContent = likeCount;
         localStorage.setItem("likeCount", likeCount);
-        localStorage.setItem("liked", "true");
-        liked = true;
-    }
-});
+        liked = !liked;
+        
+        let heart = document.createElement("span");
+        heart.classList.add("heart-animation");
+        heart.innerHTML = liked ? "❤️" : "💔";
+        document.body.appendChild(heart);
+        
+        let rect = event.target.getBoundingClientRect();
+        heart.style.left = `${rect.left + rect.width / 2}px`;
+        heart.style.top = `${rect.top - 10}px`;
+        heart.style.position = "absolute";
+        heart.style.display = "block";
+        
+        setTimeout(() => heart.remove(), 500);
+    });
