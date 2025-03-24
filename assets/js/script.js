@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // download resume
 document.getElementById("downloadBtn").addEventListener("click", function () {
-    const resumeUrl = "assets/images/Resume.pdf"; // Ensure the file path is correct
+    const resumeUrl = "assets/images/Amit_Resume.pdf"; // Ensure the file path is correct
 
     const a = document.createElement("a");
     a.href = resumeUrl;
