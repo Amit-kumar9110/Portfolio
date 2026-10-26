@@ -31,11 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // download resume
 document.getElementById("downloadBtn").addEventListener("click", function () {
-    const resumeUrl = "assets/images/Amit_Resume.pdf"; // Ensure the file path is correct
+    const resumeUrl = "assets/images/Amit_resume.pdf"; // Ensure the file path is correct
 
     const a = document.createElement("a");
     a.href = resumeUrl;
-    a.setAttribute("download", "Amit_Resume.pdf"); // Ensure correct attribute usage
+    a.setAttribute("download", "Amit_resume.pdf"); // Ensure correct attribute usage
 
     document.body.appendChild(a);
     a.click();
